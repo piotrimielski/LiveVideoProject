@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Project LifeVideo</string>
+
+    <string name="bluetooth_on">Bluetooth is on</string>
+    <string name="bluetooth_off">Bluetooth is off</string>
+    <string name="sightplus_on">Sightplus on</string>
+    <string name="sightplus_off">Sightplus is shutting down</string>
+    <string name="main_default">Default</string>
+    <string name="main_memo">Memo</string>
+    <string name="main_normal">Normal</string>
+    <string name="main_enhanced">Enhanced</string>
+    <string name="main_inverted">Inverted</string>
+    <string name="main_contrast">Contrast</string>
+    <string name="main_text">Text</string>
+    <string name="minimum_volume">Minimum volume</string>
+    <string name="maximum_volume">Maximum volume</string>
+    <string name="volume_down">Volume down</string>
+    <string name="volume_up">Volume up</string>
+    <string name="battery_low">Battery is low</string>
+    <string name="bluetooth_keypad_disconnected">Bluetooth keypad disconnected</string>
+    <string name="bluetooth_keypad_connected">Bluetooth keypad connected</string>
+    <string name="standby_on_battery_level">Standby on, Battery Level</string>
+    <string name="screen_unlocked">Screen unlocked</string>
+    <string name="battery_is">Battery is</string>
+    <string name="p_charged">% charged</string>
+    <string name="check_goggles_lens_adjustment">Please check your goggles lens adjustment</string>
+    <string name="in_setup_mode">You are in setup mode</string>
+    <string name="in_operation_mode">You are in operation mode</string>
+    <string name="fixed_exposure">Fixed Exposure On</string>
+    <string name="auto_exposure">Auto Exposure On</string>
+    <string name="please_wait">Please wait</string>
+    <string name="minimum_brightness">Minimum brightness</string>
+    <string name="maximum_brightness">Maximum brightness</string>
+    <string name="brightness_down">Brightness down</string>
+    <string name="brightness_up">Brightness up</string>
+    <string name="screen_locked">Screen locked</string>
+
+
+</resources>

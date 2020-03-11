@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/streamUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp" />
+
+        <CheckBox
+            android:id="@+id/showControls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/streamUrl"
+            android:layout_alignRight="@+id/streamUrl"
+            android:layout_marginTop="10dp"
+            android:text="Show fake controls" />
+
+        <Button
+            android:id="@+id/startCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Start Camera" />
+
+
+        <Button
+            android:id="@+id/startNetwork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Start network stream" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
