@@ -44,19 +44,20 @@
         android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <receiver android:name="com.givevision.methods.bluetooth.BluetoothReceiver">
-            <intent-filter>
-                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
-                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
-                <action android:name="android.bluetooth.device.action.ACL_DISCONNECT_REQUESTED" />
-            </intent-filter>
-        </receiver>
+<!--        <receiver android:name="com.givevision.methods.bluetooth.BluetoothReceiver">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />-->
+<!--                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />-->
+<!--                <action android:name="android.bluetooth.device.action.ACL_DISCONNECT_REQUESTED" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
 
         <activity
             android:name="com.givevision.lifevideo.MainActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation|navigation"
             android:label="@string/app_name"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity">
 
             <intent-filter>
                 <category android:name="android.intent.category.HOME" />
@@ -69,7 +70,8 @@
         <activity
             android:name="com.ConfigActivity"
             android:label="@string/app_name"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity">
 
         </activity>
 

@@ -1,5 +1,6 @@
 package com.givevision.lifevideo;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -69,7 +70,7 @@ public class MainActivity extends BaseActivity {
 //        source = (Source) getIntent().getSerializableExtra(ARG_SOURCE);
 
         source = Source.NETWORK_STREAM;
-        fakeControls = true;
+        fakeControls = false;
         streamUrl = "";
 
         screenGL();
@@ -162,17 +163,19 @@ public class MainActivity extends BaseActivity {
 
     public int barZoomValue() {
         if (zoomSaved == 0) {
-            if (zoom <= Constants.MAX_CAM_ZOOM) {
-                return (int) (60 * (zoom - 1) / Constants.MAX_CAM_ZOOM);
-            } else {
-                return (int) (60 + (90 * (zoom - Constants.MAX_CAM_ZOOM) / Constants.MAX_GL_ZOOM));
-            }
+//            if (zoom <= Constants.MAX_CAM_ZOOM) {
+//                return (int) (60 * (zoom - 1) / Constants.MAX_CAM_ZOOM);
+//            } else {
+//                return (int) (60 + (90 * (zoom - Constants.MAX_CAM_ZOOM) / Constants.MAX_GL_ZOOM));
+//            }
+            return (int) ((150 * (zoom - Constants.MAX_CAM_ZOOM) / Constants.MAX_GL_ZOOM));
         } else {
-            if (zoomSaved <= Constants.MAX_CAM_ZOOM) {
-                return (int) (60 * (zoomSaved - 1) / Constants.MAX_CAM_ZOOM);
-            } else {
-                return (int) (60 + (90 * (zoomSaved - Constants.MAX_CAM_ZOOM) / Constants.MAX_GL_ZOOM));
-            }
+//            if (zoomSaved <= Constants.MAX_CAM_ZOOM) {
+//                return (int) (60 * (zoomSaved - 1) / Constants.MAX_CAM_ZOOM);
+//            } else {
+//                return (int) (60 + (90 * (zoomSaved - Constants.MAX_CAM_ZOOM) / Constants.MAX_GL_ZOOM));
+//            }
+            return (int) ((150 * (zoomSaved - Constants.MAX_CAM_ZOOM) / Constants.MAX_GL_ZOOM));
         }
     }
 
@@ -196,6 +199,7 @@ public class MainActivity extends BaseActivity {
         isResumed = true;
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     private void screenGL() {
         LogManagement.Log_d(TAG, "MainActivity:: screenGL");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -287,7 +291,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private boolean mainDispatchKeyEvent(KeyEvent event) {
-
         if (event.getKeyCode() == Constants.KEY_TRIGGER) { //START - TRIGGER
             magModePrChoice(event);
             return true;
@@ -328,7 +331,8 @@ public class MainActivity extends BaseActivity {
                 str = "screen unlocked";
                 speak(str);
                 upDatePref(Constants.PREF_L_KEY, false);
-                zoomSaved = 0;
+//                zoomSaved = 0;
+                zoom = Constants.MAX_CAM_ZOOM;
                 setZoom(zoom);
                 mView.setPause(false);
             }
@@ -397,7 +401,7 @@ public class MainActivity extends BaseActivity {
                 public void run() {
                     handlerProg = null;
                 }
-            }, 5000);
+            }, 1000);
         }
     }
 
@@ -414,7 +418,7 @@ public class MainActivity extends BaseActivity {
     private float zoomSaved = 0f;
 
     private void magModeSetZoom(KeyEvent event, float direction) {
-        if (mView.isFrameStoped()) {
+//        if (mView.isFrameStoped()) {
             if (zoomSaved < Constants.MAX_CAM_ZOOM) {
                 zoomSaved = Constants.MAX_CAM_ZOOM;
             }
@@ -432,32 +436,32 @@ public class MainActivity extends BaseActivity {
             }
 
             setZoom(zoomSaved);
-        } else {
-            if (direction > 0) {
-                if (zoom >= Constants.MAX_CAM_ZOOM) {
-                    zoom = zoom + (direction * 0.001f);
-                } else {
-                    zoom = zoom + (direction * 0.05f);
-                    if (zoom > Constants.MAX_CAM_ZOOM) {
-                        zoom = Constants.MAX_CAM_ZOOM + (direction * 0.001f);
-                    }
-                }
-                if (zoom > Constants.MAX_CAM_ZOOM + Constants.MAX_GL_ZOOM) {
-                    zoom = Constants.MAX_CAM_ZOOM + Constants.MAX_GL_ZOOM;
-                }
-            } else {
-                if (zoom > Constants.MAX_CAM_ZOOM) {
-                    zoom = zoom + (direction * 0.001f);
-                } else {
-                    zoom = zoom + (direction * 0.05f);
-                }
-                if (zoom < 1) {
-                    zoom = 1.0f;
-                }
-            }
-            setZoom(zoom);
-            zoomSaved = zoom;
-        }
+//        } else {
+//            if (direction > 0) {
+//                if (zoom >= Constants.MAX_CAM_ZOOM) {
+//                    zoom = zoom + (direction * 0.001f);
+//                } else {
+//                    zoom = zoom + (direction * 0.05f);
+//                    if (zoom > Constants.MAX_CAM_ZOOM) {
+//                        zoom = Constants.MAX_CAM_ZOOM + (direction * 0.001f);
+//                    }
+//                }
+//                if (zoom > Constants.MAX_CAM_ZOOM + Constants.MAX_GL_ZOOM) {
+//                    zoom = Constants.MAX_CAM_ZOOM + Constants.MAX_GL_ZOOM;
+//                }
+//            } else {
+//                if (zoom > Constants.MAX_CAM_ZOOM) {
+//                    zoom = zoom + (direction * 0.001f);
+//                } else {
+//                    zoom = zoom + (direction * 0.05f);
+//                }
+//                if (zoom < 1) {
+//                    zoom = 1.0f;
+//                }
+//            }
+//            setZoom(zoom);
+//            zoomSaved = zoom;
+//        }
 
 
         LogManagement.Log_v(TAG, " MainActivity:: zoom= " + zoom + " zoomSaved= " + zoomSaved);
